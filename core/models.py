@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -13,3 +14,14 @@ class Book(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=40)
+    slug = models.SlugField(null=False, unique=True, default=slugify(name))
+
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
