@@ -1,3 +1,5 @@
 {
-  "python.pythonPath": "/Users/home/.local/share/virtualenvs/django-freeshelf-nmcw8caB/bin/python"
+  "python.pythonPath": "/Users/daneedwards/.local/share/virtualenvs/django-freeshelf-n_0CotB2/bin/python",
+  "python.linting.prospectorEnabled": true,
+  "python.linting.enabled": true
 }
