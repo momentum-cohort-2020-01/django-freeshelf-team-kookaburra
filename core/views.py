@@ -10,7 +10,7 @@ def books_list(request):
     return render(request, 'core/books_list.html', {'books': books})
 
 def books_detail(reqest, pk):
-    book = Book.onjects.get(pk=pk)
+    book = Book.objects.get(pk=pk)
     return render(request, 'core/books_detail.html', {'book': book, 'pk': pk})
 
 
