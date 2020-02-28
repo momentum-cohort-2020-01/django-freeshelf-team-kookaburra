@@ -4,5 +4,14 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def book_list(request):
-    pass
+def books_list(request):
+    books = Book.objects.all()
+    return render(request, 'core/book_list.html', {'books': books})
+
+def books_detail(reqest, pk):
+    book = Book.onjects.get(pk=pk)
+    return render(request, 'core/books_detail.html'), {'book': book, 'pk': pk})
+
+
+
+
