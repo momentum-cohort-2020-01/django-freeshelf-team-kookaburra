@@ -1,0 +1,18 @@
+<p>This is the book_list template</p>
+
+<!-- Pulls all the info from the base.html page -->
+{% extends 'base.html' %}
+{% block title %}
+<h2>Book List</h2>
+{% endblock %} 
+
+
+{%block content%} 
+{% for book in books %}
+<div class="book" id="{{book.pk}}">
+    <a style="font-weight: bold;" href="{% url 'books_detail' book.pk %}">{{ book.title }}</a>
+    <p>{{ book.title }}</p>
+    <p>{{ book.author }}</p>
+</div>
+{% endfor %} 
+{% endblock %}

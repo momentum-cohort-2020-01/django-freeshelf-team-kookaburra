@@ -1,0 +1,13 @@
+<div>
+    <a href="/">Back to Book List</a>
+</div>
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Book: {{ book.title }} </h2>
+<div class="book" id="{{ book.pk }}">
+    <p style="margin: 0 25px 50px;">{{ book.body }}</p>
+
+</div>
+{% endblock %}

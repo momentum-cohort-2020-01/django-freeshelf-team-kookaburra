@@ -7,7 +7,7 @@ from .models import Author
 
 def books_list(request):
     books = Book.objects.all()
-    return render(request, 'core/book_list.html', {'books': books})
+    return render(request, 'core/books_list.html', {'books': books})
 
 def books_detail(reqest, pk):
     book = Book.onjects.get(pk=pk)
