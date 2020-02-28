@@ -10,6 +10,6 @@ class Book(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey('Author', on_delete=models.DO_NOTHING)
 
-
+# We will not need this.
 class Author(models.Model):
     name = models.CharField(max_length=100)
