@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}<title>Books</title>{% endblock %}
+  <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+  {% block heading %}
+  <h1>Welcome to our Books!</h1>
+  {% endblock %}
+</head>
+
+<body>
+  <a href="{% url 'books_list' %}" class="top-menu"></a>
+
+
+  <section class='books container'>
+    {% block content %}
+    {% endblock %}
+  </section>
+</body>
+
+</html>
