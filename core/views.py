@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import Book, Category
 from .models import Author
 
+
 def books_list(request):
     books = Book.objects.all()
     return render(request, 'core/books_list.html', {'books': books})
