@@ -1,0 +1,21 @@
+<div>
+  <a href="/">Back to Book List</a>
+</div>
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Book: {{ book.title }} </h2>
+<a href="{% url 'books_list' %}" class="top-menu">Back to Home</a>
+<div class="book" id="{{ book.pk }}">
+  <p style="margin: 0 25px 50px;">{{ book.body }}</p>
+  <p>{{ book.author.name }}</p>
+  <p>{{ book.author.url }}</p>
+  <p>{{ book.description }}</p>
+  <p>{{ book.published }}</p>
+  <p>{{ book.updated_at }}</p>
+  <p>{{ book.category }}</p>
+  <img src="{{ book.image.url }}">
+
+</div>
+{% endblock %}
