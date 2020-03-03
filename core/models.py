@@ -13,6 +13,8 @@ class Book(models.Model):
     category = models.ForeignKey(
         'Category', on_delete=models.DO_NOTHING, null=True, blank=True)
 
+    def __str__(self):
+        return f'Book title: {self.title}'
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
