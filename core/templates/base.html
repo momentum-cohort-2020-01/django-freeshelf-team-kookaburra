@@ -15,10 +15,16 @@
 </head>
 
 <body>
-  <a href="{% url 'books_list' %}" class="top-menu"></a>
+  {% comment %} <a href="{% url 'books_list' %}" class="top-menu"></a>
+<section class='books container'> {% endcomment %}
+
+{% comment %} Used to create bookmarks/favorites {% endcomment %}
+{% comment %} <div data-id="{{ like_obj.id }}" data-type="article" data-action="bookmark" title="Favorites">
+    <span class="glyphicon glyphicon-star"></span>
+    <span data-count="bookmark">{{ like_obj.get_bookmark_count }}</span>
+</div> {% endcomment %}
 
 
-  <section class='books container'>
     {% block content %}
     {% endblock %}
   </section>

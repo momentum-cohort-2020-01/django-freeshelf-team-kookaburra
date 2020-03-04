@@ -9,15 +9,15 @@
 {% for book in books %}
 <div class="book" id="{{book.pk}}">
   <a style="font-weight: bold;" href="{% url 'books_detail' book.pk %}">{{ book.title }}</a>
+  
+  {% if book in priority_books %}
+  <p>Render an approriate icon</p>
+  {% endif %}
+  <p>This is going to be an awesome icon for indicating priority</p>
   <p>{{ book.description }}</p>
-  {% comment %} <p>{{ book.title }}</p>
-  <p>{{ book.author.name }}</p>
-  <p>{{ book.description }}</p>
-  <p>{{ book.created_at }}</p>
-  <p>{{ book.updated_at }}</p> {% endcomment %}
-  {% comment %} <a class='f6 link dim br-pill ph4 dib white bg-hot-pink'
-    href='{% url "books-by-tag" book.tag.slug %}'>{{book.tag}}</p> {% endcomment %}
-
+  {% if book.category %}
+  
+  {% endif %}
 </div>
 {% endfor %}
 {% endblock %}

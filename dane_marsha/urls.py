@@ -20,7 +20,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 from core import views
 
+from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
+
+
+
 urlpatterns = [
+    path('accounts/', include('registration.backends.default.urls')),
     path('', views.books_list, name='books_list'),
     path('books/<int:pk>', views.books_detail, name='books_detail'),
     path('books/<slug:slug>/', views.books_by_category, name='books_by_category'),
@@ -31,3 +37,29 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #Code used to help create bookmarks/favorites.
+# from . import views
+# from .models import BookmarkArticle, BookmarkComment
+ 
+# app_name = 'ajax'
+# urlpatterns = [
+#     url(r'^article/(?P<pk>\d+)/bookmark/$',
+#         login_required(views.BookmarkView.as_view(model=BookmarkArticle)),
+#         name='article_bookmark'),
+#     url(r'^comment/(?P<pk>\d+)/bookmark/$',
+#         login_required(views.BookmarkView.as_view(model=BookmarkComment)),
+#         name='comment_bookmark'),
+# ]
