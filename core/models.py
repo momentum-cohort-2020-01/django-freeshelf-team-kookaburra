@@ -54,29 +54,3 @@ class Favorite(models.Model):
     def __str__(self):
         return f'Favorite: {self.favorite}, Book: {self.book}'
     
-
-
-
-
-
-
-
-
-
-
-
-        
-
-#Code used to help create bookmarks/favorites.
-# class BookmarkArticle(BookmarkBase):
-#     class Meta:
-#         db_table = "bookmark_article"
- 
-#     obj = models.ForeignKey(Article, verbose_name="Article")
- 
- 
-# class BookmarkComment(BookmarkBase):
-#     class Meta:
-#         db_table = "bookmark_comment"
- 
-#     obj = models.ForeignKey(Comment, verbose_name="Comment")
