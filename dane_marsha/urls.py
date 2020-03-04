@@ -24,8 +24,13 @@ urlpatterns = [
     path('', views.books_list, name='books_list'),
     path('books/<int:pk>', views.books_detail, name='books_detail'),
     path('books/<slug:slug>/', views.books_by_category, name='books_by_category'),
- 
+    path('register/', views.registeruser, name='registeruser'),
     path('admin/', admin.site.urls),
+    
+    
+    
+ 
+
 
 
 ]

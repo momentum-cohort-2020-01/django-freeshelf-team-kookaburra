@@ -1,9 +1,29 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-
-# Create your views here.
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.db import IntegrityError
+from django.contrib.auth import login
 from .models import Book, Category
 from .models import Author
+
+def registeruser(request):
+    if request.method == 'GET':
+        return render (request, 'core/registeruser.html', {'form':UserCreationForm()})
+    else:
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
+                user.save()
+                login(request, user)
+                return redirect('books_list')
+
+            except IntegrityError:
+                return render (request, 'core/registeruser.html', {'form':UserCreationForm(), 'error':'That username is already taken.  Please select a different username.'})
+
+        else:
+            return render (request, 'core/registeruser.html', {'form':UserCreationForm(), 'error':'Passwords did not match'})
+
 
 
 def books_list(request):

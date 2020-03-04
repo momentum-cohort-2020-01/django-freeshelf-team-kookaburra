@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 
 
+
 class Book(models.Model):
     title = models.ForeignKey('Title', on_delete=models.DO_NOTHING)
     description = models.TextField(max_length=1000)
